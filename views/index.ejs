@@ -1,0 +1,33 @@
+<% include partials/header %>
+<div class="ui text container">
+    <div class="ui huge header context">
+        Welcome To Home Page
+    </div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% posts.forEach(post=> {%>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= post.image %>">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/post/<%= post._id %>">
+                            <%= post.title %>
+                        </a>
+                        <div class="description">
+                            <p class=""><%= post.body.substring(0, 100) %></p>
+                        </div>
+                        <div class="meta">
+                            <span><%= post.createdAt.toDateString() %></span>
+                        </div>
+                        <div class="extra">
+                            <a href="/post/<%=post._id %>" class="ui floated button">Ream More</a>
+                        </div>
+                    </div>
+
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

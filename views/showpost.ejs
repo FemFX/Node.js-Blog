@@ -1,0 +1,25 @@
+<% include partials/header %>
+<div class="ui text container context">
+    <div class="ui huge header"><%= post.title %></div>
+    <div class="ui centered rounded top attached">
+        <div class="item">
+            <img class="ui image" src="<%= post.image %>" alt="Post Image"/>
+            <div class="content">
+                <small><strong>created at: <%= post.createdAt.toDateString() %></strong></small>
+            </div>
+            <div class="description">
+                <p><%= post.body %></p>
+            </div>
+            <% if (currentUser && post.userId.equals(currentUser._id)) {%>
+              <div class="buttons">
+                  <a class="ui orange button" href="/post/<%= post._id %>/edit">Edit post</a>
+                  <form action="/post/<%= post._id %>/delete" method="POST">
+                      <button class="ui red button" type="submit">Delete</button>
+                  </form>
+              </div>
+            <% } %>
+        </div>
+        
+    </div>
+</div>
+<% include partials/footer %>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>01</title> 
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<link rel="stylesheet" href="/stylesheet/style.css" >
+</head>
+<body>
+    <div class="ui inverted menu">
+		<div class="ui container">
+			<div class="header item"><i class="idea icon"></i>My Blog</div>
+			<a class="item" href="/">Home</a>
+			<% if (!currentUser) {%>
+				<div class="right menu">
+					<a href="/login" class="item">Login</a>
+					<a href="/register" class="item">Register</a>
+				</div>
+			<% } else { %>
+				<div class="right menu">
+					<a href="/post/new" class="item">Create new post</a>
+					<span class="item"><%= currentUser.username %></span>
+					<a href="/logout" class="item">Logout</a>
+				</div>
+			<% } %>
+		</div>
+	</div>
+        <% if (error && error.length > 0) { %>
+            <div class="ui warning message">
+                <div class="header">
+                    <%= error %>
+                </div>
+            </div>
+        <% } %>
+    
+        <% if (success && success.length > 0) {%>
+            <div class="ui success message">
+                <div class="header">
+                    <%= success %>
+                </div>
+            </div>
+        <% } %>
+
+        
+           

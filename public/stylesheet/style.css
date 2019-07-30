@@ -1,0 +1,19 @@
+.context {
+  margin-top: 90px;
+}
+
+.description {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.edit {
+  margin-bottom: 20px;
+}
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+textarea {
+  resize: none;
+}
